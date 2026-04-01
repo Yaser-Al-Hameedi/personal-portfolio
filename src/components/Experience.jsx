@@ -1,6 +1,50 @@
 import { useEffect, useRef, useState } from 'react'
 import './Experience.css'
 
+function PhotoCarousel({ photos }) {
+  const [index, setIndex] = useState(0)
+  const [lightbox, setLightbox] = useState(false)
+
+  const prev = () => setIndex(i => (i - 1 + photos.length) % photos.length)
+  const next = () => setIndex(i => (i + 1) % photos.length)
+
+  return (
+    <>
+      <div className="carousel">
+        <div className="carousel-track" style={{ transform: `translateX(-${index * 100}%)` }}>
+          {photos.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`Photo ${i + 1}`}
+              className="carousel-img"
+              onClick={() => setLightbox(true)}
+            />
+          ))}
+        </div>
+        {photos.length > 1 && (
+          <>
+            <button className="carousel-btn carousel-prev" onClick={prev} aria-label="Previous">‹</button>
+            <button className="carousel-btn carousel-next" onClick={next} aria-label="Next">›</button>
+            <div className="carousel-dots">
+              {photos.map((_, i) => (
+                <button key={i} className={`carousel-dot ${i === index ? 'active' : ''}`} onClick={() => setIndex(i)} />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      {lightbox && (
+        <div className="lightbox" onClick={() => setLightbox(false)}>
+          <img src={photos[index]} alt="Full size" />
+          <button className="lightbox-close" onClick={() => setLightbox(false)}>✕</button>
+        </div>
+      )}
+    </>
+  )
+}
+
 const experiences = [
   {
     id: 'mtbank',
@@ -11,6 +55,7 @@ const experiences = [
     type: 'Internship',
     color: '#00aaff',
     logo: 'M&T',
+    photos: ['/M&T_Bank_Interns.jpeg', '/M&T_Bank_Team.jpeg'],
     tags: ['Java', 'Spring Boot', 'REST APIs', 'JUnit', 'Mockito', 'CI/CD'],
     bullets: [
       'Delivered a customer-facing credit card expiration tracking feature serving 180,000+ requests/hour by designing RESTful APIs in Java & Spring Boot integrated with downstream credit card data services.',
@@ -146,6 +191,13 @@ export default function Experience() {
                 <span key={tag} className="tag">{tag}</span>
               ))}
             </div>
+
+            {current.photos && current.photos.length > 0 && (
+              <div className="exp-photos">
+                <span className="exp-photos-label">📸 Team Photos</span>
+                <PhotoCarousel photos={current.photos} />
+              </div>
+            )}
           </div>
         </div>
       </div>
