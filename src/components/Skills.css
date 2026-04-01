@@ -1,0 +1,127 @@
+.skills-section {
+  background: var(--bg-primary);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.skill-category {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: var(--transition);
+}
+
+.skill-category:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.skill-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.skill-cat-icon {
+  font-size: 1.3rem;
+}
+
+.skill-cat-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.skill-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-pill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.skill-pill-name {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.skill-level-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+/* Tech cloud */
+.tech-cloud-wrapper {
+  text-align: center;
+}
+
+.tech-cloud-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+}
+
+.tech-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: default;
+  animation: float-in 0.5s ease both;
+}
+
+.tech-pill:hover {
+  background: rgba(108,99,255,0.1);
+  border-color: rgba(108,99,255,0.4);
+  color: var(--purple);
+  transform: translateY(-2px);
+}
+
+@keyframes float-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 860px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
