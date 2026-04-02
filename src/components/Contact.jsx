@@ -91,10 +91,14 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     try {
-      await emailjs.sendForm(
+      await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        formRef.current,
+        {
+          from_name: formState.from_name,
+          from_email: formState.from_email,
+          message: formState.message,
+        },
         { publicKey: EMAILJS_PUBLIC_KEY }
       )
       setStatus('success')
