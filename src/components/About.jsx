@@ -83,7 +83,7 @@ export default function About() {
             <div className="avatar-wrapper reveal-right delay-1">
               <div className="avatar-frame">
                 <div className="avatar-inner">
-                  <div className="avatar-initials">YAH</div>
+                  <img src="/headshot.JPG" alt="Yaser Al-Hameedi" className="avatar-photo" />
                   <div className="avatar-ring" />
                 </div>
               </div>

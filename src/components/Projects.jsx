@@ -22,7 +22,7 @@ const projects = [
     icon: '📄',
     image: '/snapvault.png',
     links: {
-      github: 'https://github.com/Yaser-Al-Hameedi',
+      github: 'https://github.com/Yaser-Al-Hameedi/SnapVault',
     },
   },
   {
@@ -44,7 +44,7 @@ const projects = [
     gradient: 'linear-gradient(135deg, #00d4ff, #10b981)',
     icon: '🌱',
     links: {
-      github: 'https://github.com/Yaser-Al-Hameedi',
+      github: 'https://github.com/Yaser-Al-Hameedi/smart-garden-system',
     },
   },
 ]

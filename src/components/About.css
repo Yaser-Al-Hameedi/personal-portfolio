@@ -54,8 +54,8 @@
 
 .avatar-frame {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
 }
 
 .avatar-inner {
@@ -71,15 +71,13 @@
   overflow: hidden;
 }
 
-.avatar-initials {
-  font-size: 2.5rem;
-  font-weight: 800;
-  font-family: var(--font-mono);
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.05em;
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  border-radius: 50%;
+  filter: brightness(0.95) contrast(1.05);
 }
 
 .avatar-ring {
