@@ -107,7 +107,10 @@ export default function Contact() {
       setStatus('success')
       setFormState({ from_name: '', from_email: '', message: '' })
       setTimeout(() => setStatus('idle'), 5000)
-    } catch {
+    } catch (err) {
+      console.log('EmailJS error:', err)
+      console.log('Error text:', err?.text)
+      console.log('Error status:', err?.status)
       setStatus('error')
       setTimeout(() => setStatus('idle'), 4000)
     }
