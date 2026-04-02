@@ -89,9 +89,6 @@ export default function Contact() {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    console.log('SERVICE:', EMAILJS_SERVICE_ID)
-    console.log('TEMPLATE:', EMAILJS_TEMPLATE_ID)
-    console.log('KEY:', EMAILJS_PUBLIC_KEY)
     setStatus('sending')
     try {
       await emailjs.send(
@@ -107,10 +104,7 @@ export default function Contact() {
       setStatus('success')
       setFormState({ from_name: '', from_email: '', message: '' })
       setTimeout(() => setStatus('idle'), 5000)
-    } catch (err) {
-      console.log('EmailJS error:', err)
-      console.log('Error text:', err?.text)
-      console.log('Error status:', err?.status)
+    } catch {
       setStatus('error')
       setTimeout(() => setStatus('idle'), 4000)
     }
