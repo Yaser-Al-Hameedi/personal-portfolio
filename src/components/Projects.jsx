@@ -40,6 +40,7 @@ const projects = [
       'REST API with FastAPI exposing sensor readings, weather forecasts, and watering history via CORS-enabled endpoints',
       'Automated sensor reads every 15 min & OpenWeatherMap forecasts every hour via APScheduler, with safety cooldown limits',
     ],
+    video: '/CloudCrop.MOV',
     tags: ['Python', 'FastAPI', 'SQLite', 'scikit-learn', 'Random Forest', 'Raspberry Pi', 'RPi.GPIO', 'APScheduler', 'OpenWeatherMap API'],
     gradient: 'linear-gradient(135deg, #00d4ff, #10b981)',
     icon: '🌱',
@@ -65,6 +66,19 @@ function ProjectCard({ project, index }) {
       {project.image && (
         <div className="card-thumbnail">
           <img src={project.image} alt={project.title} />
+        </div>
+      )}
+
+      {/* Video */}
+      {project.video && (
+        <div className="card-thumbnail">
+          <video
+            src={project.video}
+            controls
+            playsInline
+            preload="metadata"
+            className="card-video"
+          />
         </div>
       )}
 
